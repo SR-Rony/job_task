@@ -11,7 +11,7 @@ const Root = () => {
         </div>
         <div className='col-span-10 bg-bg_primary'>
                 <Navbar/>
-            <div className='px-5'>
+            <div className='px-7'>
                 <Outlet/>
             </div>
         </div>

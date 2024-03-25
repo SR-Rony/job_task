@@ -7,11 +7,13 @@ import { IoStarSharp } from "react-icons/io5";
 import { FaRegCalendarMinus } from "react-icons/fa";
 import List from '../components/list/List'
 import ListItem from '../components/list/ListItem'
+import Upcoming from '../components/upcoming/Upcoming'
 
 const Home = () => {
   return (
-    <div className='w-full h-screen'>
-        <div className='grid grid-cols-12 gap-5'>
+    <div className='w-full'>
+        {/*========== hero section start========= */}
+        <section className='grid grid-cols-12 gap-7'>
             <div className='col-span-8 w-full p-5 bg-white shadow-md rounded-md'>
                 <div className='flex justify-between items-center'>
                     <Heading className="text-3xl font-semibold" text="Tutoring Statistics"/>
@@ -69,7 +71,41 @@ const Home = () => {
 
                 </div>
             </div>
-        </div>
+        </section>
+        {/*========== hero section end========= */}
+        {/*========== Upcoming section start========= */}
+        <section className='mt-7 p-7 bg-white rounded-md shadow-md'>
+            <Heading className="text-3xl font-semibold" text="Upcoming Sessions"/>
+            <div className='grid grid-cols-12 mt-7 gap-6'>
+                <div className='col-span-4'>
+                    <Upcoming/>
+                </div>
+                <div className='col-span-4'>
+                    <Upcoming/>
+                </div>
+                <div className='col-span-4'>
+                    <Upcoming/>
+                </div>
+            </div>
+        </section>
+        {/*========== Upcoming section end========= */}
+        {/*========== Upcoming section start========= */}
+        <section className='mt-7 p-7 bg-white rounded-md shadow-md'>
+            <Heading className="text-3xl font-semibold" text="Post Survey"/>
+            <Paragraph className="text-secoundary mt-2 text-2xl" text="How was your session?"/>
+            <div className='grid grid-cols-12 mt-7 gap-6'>
+                <div className='col-span-4'>
+                    <Upcoming/>
+                </div>
+                <div className='col-span-4'>
+                    <Upcoming/>
+                </div>
+                <div className='col-span-4'>
+                    <Upcoming/>
+                </div>
+            </div>
+        </section>
+        {/*========== Upcoming section end========= */}
     </div>
   )
 }

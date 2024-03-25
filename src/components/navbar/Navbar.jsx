@@ -9,7 +9,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 const Navbar = () => {
     const [toggle,setToggle]=useState(false)
   return (
-    <div className=' flex justify-between items-center p-5 mb-5 bg-white border-l border-secoundary'>
+    <div className=' flex justify-between items-center p-5 mb-7 bg-white border-l border-secoundary'>
         <Heading className='text-3xl font-semibold' text="Hello, Charlie 👋"/>
         <div className='flex gap-5 items-center '>
             <IoMdNotificationsOutline className='text-2xl cursor-pointer'/>
