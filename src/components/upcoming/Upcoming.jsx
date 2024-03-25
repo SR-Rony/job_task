@@ -26,7 +26,7 @@ const Upcoming = () => {
                     <CiClock2 className='inline-block'/>
                     <p className='text-secoundary'> 3:30 pm</p>
                 </div>
-                <button className='p-1 px-2 bg-bg_primary rounded-full'>Now</button>
+                <button className='p-1 px-2 bg-bg_primary rounded-full'>in 2 hours</button>
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ import { FaRegCalendarMinus } from "react-icons/fa";
 import List from '../components/list/List'
 import ListItem from '../components/list/ListItem'
 import Upcoming from '../components/upcoming/Upcoming'
+import UpcomingActive from '../components/upcoming/UpcomingActive'
 
 const Home = () => {
   return (
@@ -78,7 +79,7 @@ const Home = () => {
             <Heading className="text-3xl font-semibold" text="Upcoming Sessions"/>
             <div className='grid grid-cols-12 mt-7 gap-6'>
                 <div className='col-span-4'>
-                    <Upcoming/>
+                    <UpcomingActive/>
                 </div>
                 <div className='col-span-4'>
                     <Upcoming/>

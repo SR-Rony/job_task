@@ -1,0 +1,43 @@
+.active::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    animation: round 2s infinite linear;
+    z-index: -1;
+}
+.active::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    animation: round2 2s infinite linear;
+    animation-delay: .5s;
+    z-index: -1;
+}
+@keyframes round{
+    from{
+        transform: scale(1);
+        opacity: 1;
+    }to{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+@keyframes round2{
+    from{
+        transform: scale(1);
+        opacity: 1;
+    }to{
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
