@@ -11,7 +11,7 @@ const Sightbar = () => {
     const [url,setUrl]=useState("home")
 
   return (
-    <div className='p-5 border-r border-primary w-full h-screen'>
+    <div className='p-5 border-r border-secoundary w-full h-screen bg-white'>
         <div className='flex justify-between items-center mb-5'>
             <Link to="/">
                 <Images src={Logo} alt="logo"/>
