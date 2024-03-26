@@ -5,6 +5,8 @@ import Images from '../images/Images'
 import Logo from '../../assets/logo.png'
 import { RiHome6Line } from "react-icons/ri";
 import { LiaAngleLeftSolid,LiaAngleRightSolid } from "react-icons/lia";
+import { AiOutlineMessage } from "react-icons/ai";
+import { FaRegCalendarMinus,FaRegUserCircle  } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 
 const Sightbar = () => {
@@ -30,19 +32,19 @@ const Sightbar = () => {
             </Link>
             <Link to="/schedule" onClick={()=>setUrl("schedule")}>
             <div className={` ${url=="schedule" && 'bg-primary text-white ml-[0px]'} flex ml-3 my-2 hover:ml-0 gap-2 items-center text-xl text-secoundary p-2 hover:bg-primary hover:text-white rounded-md duration-100`}>
-                    <RiHome6Line/>
+                    <FaRegCalendarMinus/>
                     <ListItem to="/schedule" className="font-medium" text="Schedule"/>
                 </div>
             </Link>
             <Link to="/messages" onClick={()=>setUrl("messages")}>
             <div className={` ${url=="messages" && 'bg-primary text-white ml-[0px]'} flex ml-3 my-2 hover:ml-0 gap-2 items-center text-xl text-secoundary p-2 hover:bg-primary hover:text-white rounded-md duration-100`}>
-                    <RiHome6Line/>
+                    <AiOutlineMessage/>
                     <ListItem to="/messages" className="font-medium" text="Messages"/>
                 </div>
             </Link>
             <Link to="/student" onClick={()=>setUrl("student")}>
                 <div className={` ${url=="student" && 'bg-primary text-white ml-[0px]'} flex ml-3 my-2 hover:ml-0 gap-2 items-center text-xl text-secoundary p-2 hover:bg-primary hover:text-white rounded-md duration-100`}>
-                    <RiHome6Line/>
+                    <FaRegUserCircle />
                     <ListItem to="/student" className="font-medium" text="Student"/>
                 </div>
             </Link>

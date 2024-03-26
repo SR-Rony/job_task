@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import MessageUser from '../components/message_user/MessageUser';
 import Images from '../components/images/Images';
@@ -6,15 +6,28 @@ import Profile from '../assets/profile.png'
 import Heading from '../components/heading/Heading';
 import Paragraph from '../components/paragraph/Paragraph';
 import { FaRegFilePdf } from "react-icons/fa6";
+import { VscSend } from "react-icons/vsc";
+import { CiImageOn } from "react-icons/ci";
+import { HiOutlineLink } from "react-icons/hi";
 
 const Messages = () => {
+  const [icon,setIcon]=useState(true)
+
+  const handleChange=(e)=>{
+    let value = e.target.value;
+    let length = value.length
+    if(value){
+      setIcon(false)
+    }
+  }
+
   return (
     <div className='grid grid-cols-12 border-t border-secoundary'>
-      <div className="col-span-4 border-x h-screen border-secoundary">
+      <div className="col-span-4 border-x  border-secoundary">
         <div className='w-full p-6 text-center bg-white border-b border-secoundary'>
           <div className='relative'>
-            <CiSearch className='absolute bottom-1/2 left-2 translate-y-1/2 text-xl'/>
-            <input className='py-2 px-7 w-full rounded-md ring-1 ring-secoundary text-xl' type="text" placeholder='Searce' />
+            {icon && <CiSearch className={` absolute bottom-1/2 left-2 translate-y-1/2 text-xl`}/>}
+            <input onChange={handleChange} className='py-2 px-7 w-full rounded-md ring-1 ring-secoundary text-xl' type="text" placeholder='Searce' />
           </div>
         </div>
           <MessageUser/>
@@ -71,6 +84,15 @@ const Messages = () => {
             <p className="text-white px-5 py-2 bg-primary rounded-s-md rounded-b-md mt-2">Hello, yes I’m available at the<br/>
              moment. I think we can have a<br/>
               session today.</p> 
+          </div>
+        </div>
+        <div className='py-10 px-5'>
+          <div className='relative overflow-hidden shadow-md'>
+            <textarea className='w-full h-36 rounded-xl focus:outline-none focus:ring-0 p-5' name="" id="" cols="30" rows="10" placeholder='Type Your Messages'></textarea>
+            <input className='rounded-b-lg absolute bottom-0 left-0 w-full border-t border-secoundary py-2 pl-20 focus:none focus:outline-none focus:ring-0' type="text" />
+            <VscSend className='absolute bottom-3 right-5 cursor-pointer'/>
+            <CiImageOn className='absolute bottom-3 left-10 cursor-pointer'/>
+            <HiOutlineLink className='absolute bottom-3 left-3 cursor-pointer'/>
           </div>
         </div>
       </div>
