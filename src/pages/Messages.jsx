@@ -9,8 +9,54 @@ import { FaRegFilePdf } from "react-icons/fa6";
 import { VscSend } from "react-icons/vsc";
 import { CiImageOn } from "react-icons/ci";
 import { HiOutlineLink } from "react-icons/hi";
+import Modal from 'react-modal';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import { IoMdClose } from "react-icons/io";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width:"40%",
+    borderRadius: "10px"
+  },
+};
+
+Modal.setAppElement('#root');
+
+// let ValuePiece = Date | null;
+
+// let Value = ValuePiece | [ValuePiece, ValuePiece];
+
+
 
 const Messages = () => {
+
+const [value, onChange] = useState(new Date());
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const [icon,setIcon]=useState(true)
 
   const handleChange=(e)=>{
@@ -51,26 +97,26 @@ const Messages = () => {
             <Paragraph className="py-2 px-4 rounded-md bg-primary text-white cursor-pointer" text="Schedule sessions"/>
         </div>
         <div className='p-5'>
-          <div className=' ml-auto w-2/5'>
+          <div className=' ml-auto w-2/5 cursor-pointer ' onClick={openModal}>
             <span className='text-secoundary'>Friday 2:20pm</span>
             <Paragraph className="text-white px-5 py-2 bg-primary rounded-s-md rounded-b-md mt-2" text="Hey Taufiq, can you please review the latest design when you can?"/>
           </div>
-          <div className=' w-2/5'>
+          <div className=' w-2/5 cursor-pointer ' onClick={openModal}>
             <span className='text-secoundary'>Friday 2:20pm</span>
             <Paragraph className=" px-4 py-2 bg-[#f9fafb] rounded-tr-md rounded-b-md mt-2 ring-1 ring-secoundary" text="Sure thing, I’ll have a look today."/>
           </div>
-          <div className=' ml-auto w-2/5'>
+          <div className=' ml-auto w-2/5 cursor-pointer ' onClick={openModal}>
             <span className='text-secoundary'>Friday 2:20pm</span>
             <Paragraph className="text-white px-5 py-2 bg-primary rounded-s-md rounded-b-md mt-2" text="Some chats here"/>
           </div>
-          <div className=' ml-auto w-2/5'>
+          <div className=' ml-auto w-2/5 cursor-pointer ' onClick={openModal}>
             <Paragraph className="text-white px-5 py-2 bg-primary rounded-s-md rounded-b-md mt-2" text="Hello, I’m available at the moment. I think we can have a session today."/>
           </div>
-          <div className=' w-2/5'>
+          <div className=' w-2/5 cursor-pointer ' onClick={openModal}>
             <span className='text-secoundary'>Friday 2:20pm</span>
             <Paragraph className=" px-4 py-2 bg-[#f9fafb] rounded-tr-md rounded-b-md mt-2 ring-1 ring-secoundary" text="Sure thing, I’ll have a look today."/>
           </div>
-          <div className='w-2/5 '>
+          <div className='w-2/5 cursor-pointer ' onClick={openModal}>
             <div className=' flex gap-5 items-center px-4 py-2 bg-white rounded-tr-md rounded-b-md mt-2 ring-1 ring-secoundary'>
                 <FaRegFilePdf className='text-xl'/>
               <div>
@@ -79,7 +125,7 @@ const Messages = () => {
               </div>
             </div>
           </div>
-          <div className=' ml-auto w-2/5'>
+          <div className=' ml-auto w-2/5 cursor-pointer ' onClick={openModal}>
             <span className='text-secoundary'>Friday 2:20pm</span>
             <p className="text-white px-5 py-2 bg-primary rounded-s-md rounded-b-md mt-2">Hello, yes I’m available at the<br/>
              moment. I think we can have a<br/>
@@ -96,6 +142,47 @@ const Messages = () => {
           </div>
         </div>
       </div>
+
+      {/* react modal */}
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className='relative pb-3 mb-3 border-b border-secoundary'>
+          <div>
+            <Heading className="text-2xl font-semibold" text="Schedule Sessions (45 Minutes)"/>
+            <Paragraph className="text-secoundary mt-1" text="Choose your availability to have sessions with Taufiq Rahman"/>
+          </div>
+          <button className='text-xl absolute top-0 right-0' onClick={closeModal}><IoMdClose/></button>
+        </div>
+        <div className="flex gap-4">
+          <Calendar onChange={onChange} value={value} />
+          <div className='w-1/2 '>
+            <Paragraph text="Select hours"/>
+            <div>
+              <Paragraph className="text-secoundary mt-2" text="Oct 13"/>
+              <div className=" flex justify-between items-center gap-3">
+              <input className="py-1 pl-5 w-full  ring-1 ring-secoundary rounded-md mt-2" type="text" placeholder='1:00 pm' />
+                <RiDeleteBin6Line className='text-xl cursor-pointer'/>
+              </div>
+            </div>
+            <div >
+              <Paragraph className="text-secoundary mt-5" text="Oct 15"/>
+              <div className=" flex justify-between items-center gap-3">
+                <input className="py-1 pl-5 w-full  ring-1 ring-secoundary rounded-md mt-2" type="text" placeholder='2:00 pm' />
+                <RiDeleteBin6Line className='text-xl cursor-pointer'/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='pt-3 mt-3 flex justify-between items-center border-t border-secoundary'>
+          <button className='py-2 px-16 ring-1 ring-secoundary rounded-md'>I’m not available</button>
+          <button className='py-2 px-16 ring-1 ring-primary bg-primary text-white rounded-md'>Set schedule</button>
+        </div>
+      </Modal>
 
     </div>
   )
