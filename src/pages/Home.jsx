@@ -5,8 +5,6 @@ import Icon from '../assets/Icon.png'
 import Paragraph from '../components/paragraph/Paragraph'
 import { IoStarSharp } from "react-icons/io5";
 import { FaRegCalendarMinus } from "react-icons/fa";
-import List from '../components/list/List'
-import ListItem from '../components/list/ListItem'
 import Upcoming from '../components/upcoming/Upcoming'
 import UpcomingActive from '../components/upcoming/UpcomingActive'
 import { AreaChart, ResponsiveContainer, ReferenceLine, XAxis, YAxis, Tooltip, CartesianGrid,Area } from 'recharts';
