@@ -59,8 +59,8 @@ const Home = () => {
   return (
     <div className='px-7 pt-7'>
         {/*========== hero section start========= */}
-        <section className='grid grid-cols-12 gap-7'>
-            <div className='col-span-8 py-5 w-full bg-white shadow-md rounded-md'>
+        <section className='grid grid-cols-12 gap-5 lg:gap-7'>
+            <div className='col-span-12 lg:col-span-8 py-5 w-full bg-white shadow-md rounded-md'>
                 <div className='flex justify-between items-center px-5'>
                     <Heading className="text-3xl font-semibold" text="Tutoring Statistics"/>
                     <div className='py-2 px-4 ring-1 ring-secoundary rounded-lg flex items-center gap-2 cursor-pointer '>
@@ -68,7 +68,7 @@ const Home = () => {
                         <Paragraph text="This Week"/>
                     </div>
                 </div>
-                <ResponsiveContainer width={800} height="85%">
+                <ResponsiveContainer width={"100%"} height="85%">
                 <AreaChart data={data}
                     margin={{ top: 30, right: 30, left: 0, bottom: 0 }}>
                     <XAxis dataKey="name" />
@@ -81,7 +81,7 @@ const Home = () => {
                 </AreaChart>
                 </ResponsiveContainer>
             </div>
-            <div className='col-span-4 w-full p-5 bg-white shadow-md rounded-md text-center'>
+            <div className='col-span-12 lg:col-span-4 w-full p-5 bg-white shadow-md rounded-md text-center'>
                 <Images className="mx-auto mt-5 mb-7" src={Icon}/>
                 <Heading className="text-3xl font-semibold" text="Silver Award"/>
                 <Paragraph className="text-base text-secoundary mt-2" text="Great job, keep it up!"/>
@@ -103,13 +103,13 @@ const Home = () => {
         <section className='mt-7 p-7 bg-white rounded-md shadow-md'>
             <Heading className="text-3xl font-semibold" text="Upcoming Sessions"/>
             <div className='grid grid-cols-12 mt-7 gap-6'>
-                <div className='col-span-4'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
                     <UpcomingActive/>
                 </div>
-                <div className='col-span-4'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
                     <Upcoming/>
                 </div>
-                <div className='col-span-4'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
                     <Upcoming/>
                 </div>
             </div>
@@ -120,13 +120,13 @@ const Home = () => {
             <Heading className="text-3xl font-semibold" text="Post Survey"/>
             <Paragraph className="text-secoundary mt-2 text-2xl" text="How was your session?"/>
             <div className='grid grid-cols-12 mt-7 gap-6'>
-                <div className='col-span-4'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
                     <Upcoming/>
                 </div>
-                <div className='col-span-4'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
                     <Upcoming/>
                 </div>
-                <div className='col-span-4'>
+                <div className='col-span-12 md:col-span-6 lg:col-span-4'>
                     <Upcoming/>
                 </div>
             </div>

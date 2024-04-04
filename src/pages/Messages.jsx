@@ -14,6 +14,9 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { IoMdClose } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import List from '../components/list/List';
+import ListItem from '../components/list/ListItem';
+import { space, split } from 'postcss/lib/list';
 
 
 const customStyles = {
@@ -24,22 +27,24 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    width:"40%",
+    width:"50%",
     borderRadius: "10px"
   },
 };
 
 Modal.setAppElement('#root');
 
-// let ValuePiece = Date | null;
-
-// let Value = ValuePiece | [ValuePiece, ValuePiece];
-
-
-
 const Messages = () => {
 
+const [date,setDate]=useState([])
+console.log(date);
+
 const [value, onChange] = useState(new Date());
+
+const handleClick =(e)=>{
+  date.push(e)
+  // setDate([])
+}
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -69,7 +74,7 @@ const [value, onChange] = useState(new Date());
 
   return (
     <div className='grid grid-cols-12 border-t border-secoundary'>
-      <div className="col-span-4 border-x  border-secoundary">
+      <div className="hidden lg:block col-span-4 border-x  border-secoundary">
         <div className='w-full p-6 text-center bg-white border-b border-secoundary'>
           <div className='relative'>
             {icon && <CiSearch className={` absolute bottom-1/2 left-2 translate-y-1/2 text-xl`}/>}
@@ -82,7 +87,7 @@ const [value, onChange] = useState(new Date());
           <MessageUser/>
           <MessageUser/>
       </div>
-      <div className="col-span-8">
+      <div className="col-span-12 lg:col-span-8">
         <div className='flex justify-between items-center p-5 bg-white'>
           <div className='flex gap-5 items-center'>
               <div className='relative'>
@@ -158,23 +163,20 @@ const [value, onChange] = useState(new Date());
           </div>
           <button className='text-xl absolute top-0 right-0' onClick={closeModal}><IoMdClose/></button>
         </div>
-        <div className="flex gap-4">
-          <Calendar onChange={onChange} value={value} />
-          <div className='w-1/2 '>
+        <div className="lg:flex gap-4">
+          <Calendar onClickDay={handleClick} onChange={onChange} value={value} />
+          <div className='lg:w-1/2 '>
             <Paragraph text="Select hours"/>
             <div>
               <Paragraph className="text-secoundary mt-2" text="Oct 13"/>
-              <div className=" flex justify-between items-center gap-3">
-              <input className="py-1 pl-5 w-full  ring-1 ring-secoundary rounded-md mt-2" type="text" placeholder='1:00 pm' />
-                <RiDeleteBin6Line className='text-xl cursor-pointer'/>
-              </div>
-            </div>
-            <div >
-              <Paragraph className="text-secoundary mt-5" text="Oct 15"/>
-              <div className=" flex justify-between items-center gap-3">
-                <input className="py-1 pl-5 w-full  ring-1 ring-secoundary rounded-md mt-2" type="text" placeholder='2:00 pm' />
-                <RiDeleteBin6Line className='text-xl cursor-pointer'/>
-              </div>
+              {date.map((item,index)=>(
+                <div key={index} className='flex justify-between items-center gap-2'>
+                  {/* <Paragraph text={`${item}`}/> */}
+                  <p className='bg-secoundary my-1'>{`${item}`}</p>
+                  <button onClick={()=>console.log(index)} className='px-4 py-1 bg-primary rounded-md text-white'>D</button>
+                </div>
+              ))}
+              {/* {date.map((item)=><List><ListItem text={item} /></List>)} */}
             </div>
           </div>
         </div>
