@@ -5,11 +5,21 @@ import Profile from '../../assets/profile.png'
 import { IoMdNotificationsOutline } from "react-icons/io";
 import Paragraph from '../paragraph/Paragraph';
 import { IoLogOutOutline } from "react-icons/io5";
+import { FaBars } from "react-icons/fa6";
+import Sightbar from '../sightbar/Sightbar';
 
 const Navbar = () => {
     const [toggle,setToggle]=useState(false)
+    const [sightBar,setSightBar]=useState(false)
+
   return (
     <div className=' flex justify-between items-center p-5 bg-white border-l border-secoundary'>
+        <FaBars className=' block lg:hidden cursor-pointer' onClick={(()=>setSightBar(true))}/>
+           { sightBar &&
+            <div className='absolute lg:hidden top-0 left-0 z-50'>
+                <Sightbar/>
+            </div>
+            }
         <Heading className='text-3xl font-semibold' text="Hello, Charlie 👋"/>
         <div className='flex gap-5 items-center '>
             <IoMdNotificationsOutline className='text-2xl cursor-pointer'/>

@@ -8,7 +8,7 @@ import { CiClock2 } from "react-icons/ci";
 
 const Upcoming = () => {
   return (
-    <div className='p-4 ring-1 ring-secoundary rounded-md'>
+    <div className='p-4 ring-1 ring-secoundary rounded-md hover:bg-gray-300 cursor-pointer'>
         <div className='flex justify-between items-center'> 
             <div>
             <Heading className="text-2xl font-semibold" text="Mathematic"/>
